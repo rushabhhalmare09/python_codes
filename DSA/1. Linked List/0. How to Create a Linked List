@@ -1,0 +1,72 @@
+
+Linked List: -
+Each Element of a Linked List is known as a Node.
+How linked list is created, how all the nodes are connected together, so what happens is as we know all the elements are Node, so Node stores two things -> 1] value of its own data and 2] Reference number of next node(or value) which needs to be connected and for the last node reference value stored will be NULL.
+Reference of the first element is stored and known as Head and Reference of the Last Element is known as Tail.
+data   stores value of current node
+next   stores Reference of Next Node. 
+
+Creating a Linked List: - 
+
+1]
+Class Node: 
+    
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+#Creating an Object and passing argument here assigning first value of linked list
+a = Node(14)
+
+b = Node(15)
+
+#creating a Linkage between two nodes, here saying that a is first node and assigning b as 2nd node
+a.next = b
+
+print(a)
+Output: -
+14
+
+Print(b)
+Output: -
+15
+
+nexEl = a.next.data
+print(nexEl)
+Output: -
+15   (here 15 bcz as we know next stores reference of next node so a.next contains the reference of b ‘s data, hence it is pointing to b so value of b is printed)
+
+2] Create a Linked List created by taking input from user
+
+class Node:
+    def __init__(self, data):
+        self.data=data
+        self.next=None
+
+    def takeInput():
+        #Taking Input from user space separated and -1 needs to be given by user to end
+        inputList=[int (ele) for ele in input(“Enter space separated values and at last -1”).split()]
+        #Initialization of Head to be None 
+        head=None
+        #Running a for loop to iterate over the input provided by user and storing in currData
+        for currData in inputList:
+            #Giving stop condition once -1 is received, directly go to last line and return head
+            if currData==-1:
+                break
+            #If not -1, then creating an object of class Node and passing argument value of 1st Node
+            newNode=Node(currData)
+
+            #If it is very First Value, then as have initialized head to be Node this condition will be met and head will become the first value user provided and it will go again to for loop
+            if head is None:
+                head=newNode
+            else:
+                #Once if condition is failed for 2nd value onwards, we will enter to else part and we will set curr equal to head 
+                curr=head
+                #For 2nd value it won’t go inside while condition as first value’s reference value will be None, so in 2nd value after while loop we are setting reference value to be 2nd values reference value hence in 3rd value it will enter inside while loop, we will change pointing from head to  next node say for 3rd value it will be 2nd value’s reference value, as 2nd values reference value is None it will exit while loop and set 2nd values reference to 3rd value and so on.
+                while curr.next is not None:
+                    curr=curr.next
+     #This will help in changing the reference value from None to next values reference value
+                curr.next=newNode
+
+        return head         #Once we reach this condition linked list is created and we return head
+
