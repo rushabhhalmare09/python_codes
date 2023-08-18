@@ -70,3 +70,51 @@ class Node:
 
         return head         #Once we reach this condition linked list is created and we return head
 
+
+3] Using tail -- Optimizing Creation of Linked List to O(n)
+
+#Creating a Node
+class Node:
+    def __init__(self, data):
+        self.data=data
+        self.next=None
+
+def takeInput():
+    #Taking Input from user space separated and -1 needs to be given by user to end
+    inputList=[int (ele) for ele in input(“Enter space separated values and at last -1”).split()]
+     #Initialization of Head and tail to be None    
+     head=None
+     tail=None
+   #Running a for loop to iterate over the input provided by user and storing in currData
+    for currData in inputList:
+        if currData==-1:
+            break
+        #If not -1, then creating an object of class Node and passing argument value of 1st Node basically creating a New Node
+        newNode=Node(currData)
+
+        #If it is very First Value, then as have initialized head and tail to be Node this condition will be met and head and tail will become the first value user provided and it will be going to top again for loop
+        if head is None:
+            head=newNode
+            tail=newNode
+
+        else:
+            #For 2nd value onwards, if condition will fail as head is not None hence tail.next  i.e reference value of 2nd value will become 2nd value
+            tail.next=newNode
+            #here, tail will be assigned the newNode value 
+            tail=newNode
+    return head      #Once we reach this condition linked list is created and we return head
+
+#Printing a Linked List
+def printLL(head):
+    while head is not None:
+        print(str(head.data)+"->",end='')
+        # after printing the value Incrementing the data so that the next time it again comes in while loop the value will change
+        head=head.next
+    print("None")
+    return
+
+#Creating an object of class takeInput
+head=takeInput()
+
+#Print the Linked list
+printLL(head)
