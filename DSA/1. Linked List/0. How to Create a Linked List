@@ -118,3 +118,87 @@ head=takeInput()
 
 #Print the Linked list
 printLL(head)
+
+
+
+============
+The Midpoint of A Linked List
+The Trivial Approach- Two Passes
+● This approach requires us to traverse through the linked list twice i.e. 2
+passes.
+● In the first pass, we will calculate the ​length​ of the linked list. After every
+iteration, update the​ length​ variable.
+● In the second pass, we will find the element of the linked list at the
+(length-1)/2​th position. This element shall be the middle element in the
+linked list.
+● However, we wish to traverse the linked list only once, therefore let us see
+another approach.
+The Optimal Approach- One Pass
+● The midpoint of a linked list can be found out very easily by taking two
+pointers, one named ​slow ​and the other named ​fast​.
+● As their names suggest, they will move in the same way respectively.
+● The ​fast​ pointer will move ahead ​two pointers at a time​, while the​ slow
+pointer one will move at a speed of ​a pointer at a time​.
+● In this way, when the fast pointer will reach the end, by that time the slow
+pointer will be at the middle position of the array.
+● These pointers will be updated like this:
+○ slow = slow.next
+○ fast = fast.next.next
+1
+Python Code
+Note:
+● For odd length there will be only one middle element, but for the even length
+there will be two middle elements.
+● In case of an even length LL, both these approaches, will return the ​first
+middle element​ and the other one will be the direct ​next ​of the first middle
+element.
+Merge Two sorted linked lists
+● We will be merging the linked list, similar to the way we performed merge
+over two sorted arrays.
+● We will be using the two ​head​ pointers, compare their data and the one
+found smaller will be directed to the new linked list, and increase the ​head
+pointer of the corresponding linked list.
+● Just remember to maintain the ​head​ pointer separately for the new sorted
+list.
+● And also if one of the linked list’s length ends and the other one’s not, then
+the remaining linked list will directly be appended to the final list.
+● Try to implement this approach on your own.
+2
+def printMiddle(headNode):
+if headNode is None or headNode.next is None:
+return head
+slow = headNode #Slow pointer
+fast = headNode.next #Fast Pointer
+while (fast is not None and fast.next is not None):
+fast = fast.next.next
+slow = slow.next
+return slow #Slow pointer shall point to our middle element
+Mergesort over a linked list
+● Like the merge sort algorithm is applied over the arrays, the same way we
+will be applying it over the linked list.
+● Just the difference is that in the case of arrays, the middle element could be
+easily figured out, but here you have to find the middle element, each time
+you send the linked list to split into two halves using the above approach.
+● The merging part of the divided lists can also be done using the ​merge
+sorted linked lists code ​as discussed above.
+● The functionalities of this code have already been implemented by you, just
+use them directly in your functions at the specified places.
+● Try to implement this approach on your own.
+Reverse the linked list
+Recursive approach:
+● In this approach, we will store the last element of the list in the small answer,
+and then update that by adding the​ next last node​ and so on.
+● Finally, when we will be reaching the first element, we will assign the ​next​ to
+NONE.
+● Follow the Python code below, for better understanding.
+3
+def reverseLinkedList(head) :
+ if head is None or head.next is None
+ return head
+ smallHead = reverseLinkedList(head.next)
+ head.next.next head
+ head.next = None
+ return smallHead
+After calculation, you can see that this code has a time complexity of ​O(n​2
+)​. Now
+let’s think about how to improve it.
