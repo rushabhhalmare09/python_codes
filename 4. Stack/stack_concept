@@ -1,7 +1,33 @@
+
+
 Stacks: - 
 
 Stack is initialized as Stack variablename ex  Stack stk
 When it satisfies three condition it is known as Stack, those conditions are  1] Push (we could only insert over last element)2] Pop (Only we can remove the last element added) 3] Top (it will return the top element)
+
+Introduction
+● Stacks are simple data structures that allow us to store and retrieve data
+sequentially.
+● A stack is a linear data structure like arrays and linked lists.
+● It is an abstract data type​(ADT)​.
+● In a stack, the order in which the data arrives is essential. It follows the LIFO
+order of data insertion/abstraction. LIFO stands for​ Last In First Out
+
+Operations on the stack:
+● In a stack, insertion and deletion are done at one end, called​ top​.
+● Insertion​: This is known as a ​push​ operation.
+● Deletion​: This is known as a ​pop​ operation.
+
+Main stack operations
+• ​Push (int data): Insert data onto the stack.
+•​ int Pop(): Removes and returns the last inserted element from the stack.
+Auxiliary stack operations
+• ​int Top(): Returns the last inserted element without removing it.
+• ​int Size(): Returns the number of elements stored in the stack.
+• ​int IsEmptyStack(): Indicates whether any elements are stored in the stack or
+not.
+• ​int IsFullStack(): Indicates whether the stack is full or not.
+
 
 Code: ->
 
