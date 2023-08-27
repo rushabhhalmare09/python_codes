@@ -31,20 +31,25 @@ not.
 
 Code: ->
 
+
+1] Creating a Stack using an Array
+
 class Stack:
     def __init__(self):
         self.__data=[]
-    def push(self,item):
+
+    def push(self, item):
         self.__data.append(item)
+
     def pop(self):
         if self.isEmpty():
-            print("Hey!Stack is Empty!!")
+            print("Hey! Stack is Empty!!")
             return
         return self.__data.pop()
     
     def top(self):
         if self.isEmpty():
-            print("Hey!Stack is Empty!!")
+            print("Hey! Stack is Empty!!")
             return
         return self.__data[len(self.__data)-1]
         
@@ -54,10 +59,25 @@ class Stack:
     def isEmpty(self):
         return self.size()==0
 
+#Implementing Stack
+
+#Creating a Stack class object as s
 s=Stack()
+
+#Applying stack operation
 s.push(12)
 s.push(13)
 s.push(15)
+
+#Removing each element and printing each removed element
 while s.isEmpty() is False:
     print(s.pop())
+
+#Will print which element is last i.e at top
 s.top()
+
+
+
+
+
+
