@@ -77,6 +77,61 @@ while s.isEmpty() is False:
 s.top()
 
 
+2] Stack using linkedlist
+
+
+class Node:
+    def __init__(self, initData):
+        self.data=initData
+        self.next=None
+
+class Stack:
+    def __init__(self):
+        #Making head and count as private as we don’t want anyone to change this
+        self.__head=None
+        self.__count=0
+
+    #Creating a Push Operation
+    def push(self, element):
+        #Creating a Node as node
+        newNode=Node(element)
+        newNode.next=self.__head
+        self.__head=newNode 
+        self.__count=self.__count+1
+
+    #Creating a Pop Operation
+    def pop(self):
+        #If stack is empty then enter the if element or ignore this
+        if self.isEmpty() is True:
+            print("Hey!Stack is Empty!")
+            return
+
+        data=self.__head.data
+        self.__head=self.__head.next
+        self.__count=self.__count-1
+        return data
+        
+    def top(self):
+        if self.isEmpty() is True:
+            print("Hey! Stack is Empty!")
+            return
+        data=self.__head.data
+        return data
+    
+    def size(self):
+        return self.__count
+    
+    def isEmpty(self):
+        return self.size()==0
+
+s=Stack()
+s.push(12)
+s.push(13)
+s.push(15)
+
+while s.isEmpty() is False:
+    print(s.pop())
+s.top()
 
 
 
